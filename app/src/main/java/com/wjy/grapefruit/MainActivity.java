@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Intent intent = new Intent(this, ImHomeActivity.class);
         startActivity(intent);
+        System.out.println();
        /* BmobTestData data = new BmobTestData();
         BmobRealTimeData rtd = new BmobRealTimeData();*/
 //        rtd.subTableUpdate();
