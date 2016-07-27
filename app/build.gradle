@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+    //**bmob-sdk:3.4.6版本依赖包，用于兼容Android6.0系统**
+    useLibrary 'org.apache.http.legacy'
+    defaultConfig {
+        applicationId "com.wjy.grapefruit"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(':navigationtabbar')
+    testCompile 'junit:junit:4.12'
+    //以下SDK开发者请根据需要自行选择
+    //bmob-sdk：Bmob的android sdk包
+    /*   compile 'cn.bmob.android:bmob-sdk:3.4.+'*/
+    //bmob-push：Bmob的推送包
+    //bmob-im：bmob的im包，每个版本的im依赖特定版本的bmob-sdk，具体可以查看下面注释[2]中的对应关系
+    //bmob-sms ：Bmob单独为短信服务提供的包
+    /*  compile 'cn.bmob.android:bmob-sms:1.0.1'*/
+    //okhttp：为解决弱网情况下SDK请求失败及响应慢的问题，自`V3.4.3版本`开始使用`okhttp`优化SDK的网络框架。
+    //bmob-sdk:3.4.6需要依赖okhttp（2.4.0）、okio（2.4.0），而support-v4（23.2.1）及org.apache.http.legacy包则用于兼容Android6.0系统，具体可查看下面注释[1]的解释
+    /*    compile 'cn.bmob.android:bmob-sdk:3.4.6'*/
+    /*  compile 'com.squareup.okhttp:okhttp:2.4.0'
+              compile 'com.squareup.okio:okio:1.4.0'*/
+    compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'org.xutils:xutils:3.3.28'
+    compile 'cn.bmob.android:bmob-push:0.8'
+    compile 'cn.bmob.android:bmob-im:2.0.3'
+    compile 'cn.bmob.android:bmob-sdk:3.4.6'
+    compile 'com.squareup.okhttp:okhttp:2.4.0'
+    compile 'com.squareup.okio:okio:1.4.0'
+    compile 'com.android.support:support-v4:23.3.0'
+    compile 'com.android.support:design:23.3.0'
+    compile 'com.android.support:recyclerview-v7:23.3.0'
+}
